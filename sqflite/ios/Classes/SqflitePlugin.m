@@ -634,6 +634,9 @@ static NSInteger _databaseOpenCount = 0;
         } else {
             [database setKey:password];
         }
+
+        [database executeStatements:@"PRAGMA cipher_migrate;"];
+        
         NSLog(@"Encryption is ready.");
     }];
     
